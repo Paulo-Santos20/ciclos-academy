@@ -1,0 +1,237 @@
+.header {
+    width: 100%;
+    background: #3ab6e5; /* azul bebê */
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(58, 182, 229, 0.07);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .header-inner {
+    width: 80%;
+    max-width: 1200px;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin-right: 0;
+  }
+  
+  .logo-ciclos {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    letter-spacing: 1.5px;
+  }
+  
+  .logo-academia {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  
+  .logo-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* Menu padrão (desktop) */
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: none;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  
+  .menu a:not(.insta-link):hover {
+    color: #ff7a00; /* laranja */
+  }
+  
+  .insta-link {
+    display: flex;
+    align-items: center;
+    margin-left: 1.2rem;
+    transition: transform 0.2s;
+  }
+  
+  .insta-link .insta-icon {
+    stroke: #fff;
+    transition: stroke 0.2s;
+  }
+  
+  .insta-link:hover .insta-icon {
+    stroke: #ff7a00;
+    transform: scale(1.1);
+  }
+  
+  /* Botão hambúrguer (escondido no desktop) */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+  
+  /* Animação do hambúrguer para X */
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Responsivo: Mobile */
+  @media (max-width: 900px) {
+    .header-inner {
+      width: 95%;
+      padding: 12px 0;
+    }
+    .logo-img {
+      height: 30px;
+    }
+    .logo-ciclos {
+      font-size: 1.2rem;
+    }
+    .logo-academia {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .header-inner {
+      flex-direction: row;
+      width: 98%;
+      padding: 10px 0;
+    }
+    .logo-img {
+      height: 24px;
+    }
+    .logo-ciclos {
+      font-size: 1rem;
+    }
+    .logo-academia {
+      font-size: 0.75rem;
+    }
+  }
+  
+  /* Menu mobile */
+  @media (max-width: 768px) {
+    .header-inner {
+      width: 98%;
+      padding: 10px 0;
+    }
+  
+    .menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      background: #3ab6e5;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 0;
+      box-shadow: 0 6px 16px rgba(58,182,229,0.08);
+      border-bottom: 1px solid #f0f0f0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 0.25s, transform 0.25s;
+      z-index: 15;
+    }
+  
+    .menu.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      padding: 12px 0 8px 0;
+    }
+  
+    .menu a {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #47c3f7;
+      color: #fff;
+      background: none;
+      transition: background 0.2s, color 0.2s;
+    }
+  
+    .menu a:not(.insta-link):hover {
+      background: #ff7a00;
+      color: #fff;
+    }
+  
+    .insta-link {
+      margin-left: 0;
+      padding: 14px 24px;
+      border-bottom: none;
+    }
+  
+    /* Mostra o botão hambúrguer */
+    .menu-toggle {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .logo-img {
+      height: 40px; 
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .logo-img {
+      height: 32px; 
+    }
+  }
