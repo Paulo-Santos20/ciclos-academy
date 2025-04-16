@@ -1,99 +1,310 @@
-.banner {
+@font-face {
+  font-family: 'Eastman Alt Pack';
+  src: url('../../assets/fonts/EastmanAlternateTrial-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Container Principal */
+.banner-container {
   width: 100%;
   height: 80vh;
-  min-height: 320px;
-  max-width: 100vw;
+  background: #eaf8fd;
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eaf8fd;
-  margin: 0;
-  padding: 0;
+  padding: 0 32px;
   box-sizing: border-box;
 }
 
-.banner-img {
-  position: absolute;
-  inset: 0; /* substitui top:0; left:0; width:100%; height:100% */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  z-index: 1;
-  max-width: 100vw;
-  max-height: 100vh;
-  min-width: 100%;
-  min-height: 100%;
-  pointer-events: none; /* impede seleção acidental da imagem */
-  user-select: none;
+.banner-content,
+.banner-title,
+.banner-subtitle,
+.outlined-text,
+.title-blue {
+  font-family: 'Eastman Alt Pack', Arial, sans-serif;
 }
 
-.banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(34, 134, 185, 0.45);
+/* Estrutura Interna */
+.banner-inner {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+/* Texto Principal */
+.banner-content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  z-index: 2;
+}
+
+.banner-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* Espaçamento entre "Foco, Força e" */
+}
+
+.outlined-text {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: orange;
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* Subtítulo */
+.banner-subtitle {
+  margin-top: 16px;
+  /* Espaço entre título e subtítulo */
+}
+
+.title-blue {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #3ab6e5;
+  /* Azul escuro */
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Botão e Texto Auxiliar */
+.banner-actions {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Espaço entre botão e texto */
+}
+
+.banner-btn {
+  background: #3ab6e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(58, 182, 229, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.banner-btn:hover {
+  transform: translateY(-3px);
+}
+
+.banner-call {
+  font-size: 1rem;
+  color: #3ab6e5;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem */
+.banner-image-wrapper {
+  max-width: 45%;
+}
+
+.banner-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Ícones Decorativos */
+.decorative-elements {
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 
-.banner-content {
-  color: #fff;
-  text-align: center;
-  background: rgba(58, 182, 229, 0.55);
-  padding: 32px 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(34, 134, 185, 0.13);
-  max-width: 520px;
-  margin: 0 auto;
-  z-index: 3;
+.percentage-icon {
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  font-size: 6rem;
+  color: #3ab6e5;
+  opacity: 0.8;
 }
 
-.banner-content h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #fff;
-  letter-spacing: 1.5px;
+.star {
+  position: absolute;
+  color: #3ab6e5;
+  filter: drop-shadow(0 0 10px rgba(58, 182, 229, 0.6));
+  opacity: 0.8;
 }
 
-.banner-content p {
-  font-size: 1.2rem;
-  color: #fff;
+.star-1 {
+  top: 20%;
+  left: 20%;
+  font-size: 2rem;
 }
 
+.star-2 {
+  bottom: 20%;
+  right: 15%;
+  font-size: 3rem;
+}
+
+.star-3 {
+  bottom: 10%;
+  left: 10%;
+  font-size: 2.5rem;
+}
+
+/* Responsividade */
 @media (max-width: 900px) {
-  .banner-content h2 {
-    font-size: 1.4rem;
+  .banner-inner {
+    flex-direction: column;
+    gap: 24px;
   }
-  .banner-content p {
-    font-size: 1rem;
-  }
+
   .banner-content {
-    padding: 20px 10px;
-    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  .banner-title .outlined-text {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1.5px #fff;
+  }
+
+  .banner-subtitle .title-blue {
+    font-size: 3rem;
+  }
+
+  .banner-call {
+    font-size: 0.9rem;
+  }
+
+  .banner-image-wrapper {
+    max-width: 60%;
+  }
+
+  .percentage-icon {
+    font-size: 4rem;
+    left: 50%;
+  }
+
+  .star-1,
+  .star-2,
+  .star-3 {
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 600px) {
-  .banner {
-    height: 60vh;
-    min-height: 180px;
+
+@media (max-width: 768px) {
+  .banner-inner {
+    flex-direction: row;
+    /* Mantém lado a lado */
+    gap: 16px;
+    align-items: center;
   }
+
   .banner-content {
-    padding: 12px 4px;
-    border-radius: 8px;
-    max-width: 95vw;
+    max-width: 70%;
   }
-  .banner-img {
-    min-height: 100%;
-    min-width: 100%;
-    object-fit: cover;
+
+  .banner-title .outlined-text {
+    font-size: 4.5rem;
+    -webkit-text-stroke: 1px #fff;
+  }
+
+  .banner-subtitle .title-blue {
+    font-size: 4.8rem;
+  }
+
+  .banner-actions {
+    gap: 22px;
+  }
+
+  .banner-btn {
+    font-size: 1rem;
+    padding: 18px 28px;
+  }
+
+  .banner-call {
+    font-size: 0.85rem;
+  }
+
+  .banner-image-wrapper {
+    max-width: 100%;
+    min-width: 120px;
+  }
+
+  .banner-image {
+    max-width: 450px;
+    border-radius: 12px;
+  }
+}
+
+
+@media (max-width: 425px) {
+  .banner-inner {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .star-1 {
+    top: 5%;
+  }
+
+  .star-3 {
+    bottom: 5%;
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 24px 8px 20px 8px;
+    border-radius: 12px;
+  }
+
+  .banner-title .outlined-text {
+    font-size: 3rem;
+    -webkit-text-stroke: 1px orange;
+  }
+
+  .banner-subtitle .title-blue {
+    font-size: 3.4rem;
+  }
+
+  .banner-actions {
+    flex-direction: column;
+  }
+
+  .banner-btn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .banner-call {
+    font-size: 0.8rem;
+  }
+
+  .banner-image-wrapper {
+    display: none !important;
+    /* Esconde a imagem como elemento */
+  }
+
+  .banner-container {
+    background:
+      linear-gradient(0deg, rgba(234, 248, 253, 0.80) 40%, rgba(234, 248, 253, 0.7) 100%),
+      url('../../assets/img/academia.png') center center/cover no-repeat;
   }
 }
