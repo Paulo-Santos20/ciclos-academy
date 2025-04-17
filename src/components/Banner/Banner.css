@@ -262,7 +262,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .banner-inner {
     flex-direction: column;
     gap: 10px;
@@ -327,7 +327,7 @@
   }
 
   .star-1 {
-    top: 10;
+    top: 10%;
     left: 80%;
   }
 
