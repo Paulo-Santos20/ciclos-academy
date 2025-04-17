@@ -207,21 +207,30 @@
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .banner-inner {
     flex-direction: row;
-    /* Mantém lado a lado */
     gap: 16px;
     align-items: center;
+    width: 100%;
   }
 
   .banner-content {
-    max-width: 70%;
+    padding: 24px 8px 20px 8px;
+    border-radius: 12px;
+  }
+
+  .star-1 {
+    top: 5%;
+  }
+
+  .star-3 {
+    bottom: 5%;
   }
 
   .banner-title .outlined-text {
     font-size: 4.5rem;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px orange;
   }
 
   .banner-subtitle .title-blue {
@@ -253,7 +262,7 @@
 }
 
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .banner-inner {
     flex-direction: column;
     gap: 10px;
@@ -261,18 +270,11 @@
     width: 100%;
   }
 
-  .star-1 {
-    top: 5%;
-  }
-
-  .star-3 {
-    bottom: 5%;
-  }
-
   .banner-content {
     max-width: 100%;
     padding: 24px 8px 20px 8px;
     border-radius: 12px;
+    margin-top: 24px;
   }
 
   .banner-title .outlined-text {
@@ -281,20 +283,21 @@
   }
 
   .banner-subtitle .title-blue {
-    font-size: 3.4rem;
+    font-size: 4.4rem;
   }
 
   .banner-actions {
+    gap: 12px;
     flex-direction: column;
   }
 
   .banner-btn {
-    font-size: 0.95rem;
-    padding: 10px 20px;
+    font-size: 2rem;
+    padding: 12px 20px;
   }
 
   .banner-call {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .banner-image-wrapper {
@@ -304,7 +307,74 @@
 
   .banner-container {
     background:
-      linear-gradient(0deg, rgba(234, 248, 253, 0.80) 40%, rgba(234, 248, 253, 0.7) 100%),
+      linear-gradient(0deg, rgba(49, 49, 49, 0.93) 40%, rgba(234, 248, 253, 0.7) 100%),
       url('../../assets/img/academia.png') center center/cover no-repeat;
+  }
+}
+
+@media (max-width: 425px) {
+  .banner-title .outlined-text {
+    font-size: 3rem;
+  }
+
+  .banner-subtitle .title-blue {
+    font-size: 3.5rem;
+  }
+
+  .banner-btn {
+    font-size: 2rem;
+    padding: 12px 20px;
+  }
+
+  .star-1 {
+    top: 10;
+    left: 80%;
+  }
+
+  .star-2 {
+    bottom: 10%;
+  }
+
+  .banner-call {
+    font-size: 0.80rem;
+  }
+
+  .banner-container {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 325px) {
+  .banner-title .outlined-text {
+    font-size: 2rem;
+  }
+
+  .banner-subtitle .title-blue {
+    font-size: 2.5rem;
+  }
+
+  .banner-btn {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  .star-1 {
+    top: 20%;
+  }
+
+  .star-2 {
+    bottom: 10%;
+  }
+
+  .star-3 {
+    bottom: 5%;
+  }
+
+  .banner-call {
+    font-size: 0.60rem;
+  }
+
+  .banner-container {
+    height: 50vh;
   }
 }
