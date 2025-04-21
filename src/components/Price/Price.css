@@ -1,0 +1,241 @@
+.pricing-section-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 100px 0;
+  }
+  
+  .pricing-section {
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .pricing-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .pricing-plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+  }
+  
+  .pricing-plan {
+    flex: 1;
+    max-width: 350px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pricing-plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pricing-plan-highlight {
+    background-color: #ff9b42; /* Laranja */
+    color: white;
+    padding: 50px 30px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .pricing-plan-highlight:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .plan-price {
+    margin-bottom: 5px;
+  }
+  
+  .currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+    vertical-align: top;
+    margin-right: 3px;
+  }
+  
+  .amount {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  
+  .period {
+    font-size: 1rem;
+    color: inherit;
+    opacity: 0.8;
+  }
+  
+  .pricing-plan-highlight .period {
+    color: white;
+    opacity: 0.9;
+  }
+  
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    flex-grow: 1;
+  }
+  
+  .plan-feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .feature-icon {
+    color: #4CAF50;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .pricing-plan-highlight .feature-icon {
+    color: white;
+  }
+  
+  .plan-button {
+    display: block;
+    text-align: center;
+    background-color: #ff9b42;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+  }
+  
+  .plan-button:hover {
+    background-color: #e68a35;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .pricing-plan-highlight .plan-button {
+    background-color: white;
+    color: #ff9b42;
+  }
+  
+  .pricing-plan-highlight .plan-button:hover {
+    background-color: #f8f8f8;
+    color: #e68a35;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1400px) {
+    .pricing-section {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .pricing-section {
+      width: 95%;
+    }
+    
+    .pricing-plan {
+      padding: 30px 20px;
+    }
+    
+    .pricing-plan-highlight {
+      padding: 40px 20px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .pricing-plans {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .pricing-plan {
+      width: 100%;
+      max-width: 450px;
+    }
+    
+    .pricing-plan-highlight {
+      margin-top: 0;
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-section-container {
+      padding: 80px 0;
+    }
+    
+    .pricing-title {
+      font-size: 2rem;
+    }
+    
+    .pricing-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pricing-section-container {
+      padding: 60px 20px;
+    }
+    
+    .pricing-section {
+      width: 100%;
+    }
+    
+    .pricing-title {
+      font-size: 1.8rem;
+    }
+    
+    .plan-name {
+      font-size: 1.3rem;
+    }
+    
+    .amount {
+      font-size: 2.5rem;
+    }
+  }

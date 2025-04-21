@@ -1,88 +1,257 @@
+/* Container externo para centralizar a seção */
+.activity-section-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
 .activity-section {
-    width: 100%;
-    background: #eaf8fd;
-    padding: 48px 0 32px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 80%;
+  padding: 60px 0;
+  position: relative;
+}
+
+/* Cabeçalho alinhado à esquerda */
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.activity-header-content {
+  text-align: left;
+  max-width: 70%;
+}
+
+.activity-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.activity-title:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: #badffa; /* Azul bebê */
+  bottom: -10px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.activity-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Controles do carrossel */
+.carousel-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.carousel-btn {
+  background-color: #ff9b42; /* Laranja */
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+  background-color: #e68a35; /* Laranja escuro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Container do carrossel */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%; /* Ajustado para funcionar com a lista triplicada */
+}
+
+.activity-card-wrapper {
+  flex: 0 0 calc(100% / 3.5); /* Mostra 3.5 cards por vez */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Estilo dos cartões */
+.activity-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  color: inherit;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.activity-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activity-card:hover .activity-image {
+  transform: scale(1.05);
+}
+
+/* Overlay com o nome sobreposto à imagem */
+.activity-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+
+.activity-name {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Link com seta diagonal */
+.activity-link {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #ff9b42;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.arrow-icon {
+  transform: rotate(-45deg);
+  display: block;
+}
+
+.activity-link:hover {
+  background-color: #e68a35;
+  transform: translateY(-3px) translateX(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 1400px) {
+  .activity-section {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .activity-card-wrapper {
+    flex: 0 0 calc(100% / 3); /* Mostra 3 cards por vez */
+  }
+  
+  .activity-section {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  .activity-card-wrapper {
+    flex: 0 0 calc(100% / 2.5); /* Mostra 2.5 cards por vez */
+  }
+  
+  .activity-header-content {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .activity-card-wrapper {
+    flex: 0 0 calc(100% / 1.5); /* Mostra 1.5 cards por vez */
   }
   
   .activity-title {
     font-size: 2rem;
-    color: #1a237e;
-    margin-bottom: 32px;
-    font-family: 'Eastman Alt Pack', Arial, sans-serif;
   }
   
-  .activity-row {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+  .activity-subtitle {
+    font-size: 1rem;
   }
   
-  .activity-card {
-    background: #fff;
-    border: 2px solid #b3e0ff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(26, 35, 126, 0.05);
-    color: #1a237e;
-    font-size: 1.25rem;
-    font-family: 'Eastman Alt Pack', Arial, sans-serif;
-    text-align: center;
-    text-decoration: none;
-    padding: 32px 24px;
-    transition: background 0.3s, color 0.3s, border 0.3s;
-    cursor: pointer;
-    font-weight: 600;
-    min-width: 140px;
-    min-height: 140px;
-    display: flex;
+  .activity-header {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
   }
   
-  .activity-icon {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-    display: block;
+  .activity-header-content {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
   
-  .activity-name {
-    font-size: 1.15rem;
-    color: #1a237e;
-    font-weight: 600;
+  .activity-section {
+    width: 100%;
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-section-container {
+    padding: 0;
   }
   
-  .activity-card:hover,
-  .activity-card:focus {
-    background: #ff7a00;
-    color: #fff;
-    border-color: #ff7a00;
-    outline: none;
+  .activity-section {
+    padding: 40px 15px;
   }
   
-  .activity-card:hover .activity-name,
-  .activity-card:hover .activity-icon {
-    color: #fff;
+  .activity-card-wrapper {
+    flex: 0 0 100%; /* Mostra 1 card por vez */
   }
   
-  /* Responsivo para telas menores */
-  @media (max-width: 600px) {
-    .activity-row {
-      flex-direction: column;
-      gap: 18px;
-      align-items: center;
-    }
-    .activity-card {
-      width: 90vw;
-      min-width: unset;
-      max-width: 340px;
-    }
-    .activity-title {
-      font-size: 1rem;
-    }
+  .activity-title {
+    font-size: 1.8rem;
   }
+  
+  .activity-image-container {
+    height: 200px;
+  }
+}
