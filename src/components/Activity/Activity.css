@@ -1,6 +1,6 @@
 /* Container externo para centralizar a seção */
 .activity-section-container {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   background-color: #f8f9fa;
@@ -8,6 +8,7 @@
 
 .activity-section {
   width: 80%;
+  margin: 0 auto;
   padding: 60px 0;
   position: relative;
 }
@@ -58,7 +59,7 @@
 }
 
 .carousel-btn {
-  background-color: #ff9b42; /* Laranja */
+  background-color: #ff9b42;
   color: white;
   border: none;
   width: 40px;
@@ -73,7 +74,7 @@
 }
 
 .carousel-btn:hover {
-  background-color: #e68a35; /* Laranja escuro */
+  background-color: #e68a35;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -87,11 +88,11 @@
 
 .carousel-track {
   display: flex;
-  width: 100%; /* Ajustado para funcionar com a lista triplicada */
+  width: 100%;
 }
 
 .activity-card-wrapper {
-  flex: 0 0 calc(100% / 3.5); /* Mostra 3.5 cards por vez */
+  flex: 0 0 calc(100% / 3.5);
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -179,25 +180,15 @@
 }
 
 /* Responsividade */
-@media (max-width: 1400px) {
-  .activity-section {
-    width: 90%;
-  }
-}
-
 @media (max-width: 1200px) {
   .activity-card-wrapper {
-    flex: 0 0 calc(100% / 3); /* Mostra 3 cards por vez */
-  }
-  
-  .activity-section {
-    width: 95%;
+    flex: 0 0 calc(100% / 3);
   }
 }
 
 @media (max-width: 992px) {
   .activity-card-wrapper {
-    flex: 0 0 calc(100% / 2.5); /* Mostra 2.5 cards por vez */
+    flex: 0 0 calc(100% / 2.5);
   }
   
   .activity-header-content {
@@ -207,7 +198,7 @@
 
 @media (max-width: 768px) {
   .activity-card-wrapper {
-    flex: 0 0 calc(100% / 1.5); /* Mostra 1.5 cards por vez */
+    flex: 0 0 calc(100% / 1.5);
   }
   
   .activity-title {
@@ -229,7 +220,7 @@
   }
   
   .activity-section {
-    width: 100%;
+    width: 80%;
     padding: 60px 20px;
   }
 }
@@ -238,19 +229,20 @@
   .activity-section-container {
     padding: 0;
   }
-  
+
   .activity-section {
     padding: 40px 15px;
+    width: 80%;
   }
-  
+
   .activity-card-wrapper {
-    flex: 0 0 100%; /* Mostra 1 card por vez */
+    flex: 0 0 100%;
   }
-  
+
   .activity-title {
     font-size: 1.8rem;
   }
-  
+
   .activity-image-container {
     height: 200px;
   }
