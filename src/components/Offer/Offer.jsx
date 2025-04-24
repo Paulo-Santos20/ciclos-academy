@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Offer.css";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
-// Importe a imagem da academia (você precisará ter essa imagem em seus assets)
+// Importe a imagem da academia
 import academiaImg from "../../assets/img/academia.png";
 
 const offers = [

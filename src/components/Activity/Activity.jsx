@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Activity.css";
 import { FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 
-// Importando imagens reais (você precisará ter essas imagens na pasta assets)
+// Importando imagens (mantidas como no original)
 import musculacaoImg from "../../assets/img/musculacao.jpg";
 import funcionalImg from "../../assets/img/funcional.jpg";
 import jumpImg from "../../assets/img/jump.jpg";
@@ -38,29 +38,67 @@ const activities = [
 ];
 
 const Activity = () => {
-  // Duplicamos o array para criar uma rolagem infinita
   const allActivities = [...activities, ...activities, ...activities];
-  const [currentIndex, setCurrentIndex] = useState(activities.length); // Começamos a partir do meio
+  const [currentIndex, setCurrentIndex] = useState(activities.length);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(3.5); // Valor padrão para desktop
   const carouselRef = useRef(null);
   const autoPlayRef = useRef(null);
-  const visibleCards = 3.5; // Número de cartões visíveis ao mesmo tempo (3 cartões e meio)
+
+  // Função para atualizar o número de cartões visíveis com base no tamanho da tela
+  const updateVisibleCards = () => {
+    if (window.innerWidth <= 480) {
+      setVisibleCards(1); // Um cartão completo em telas pequenas
+    } else if (window.innerWidth <= 768) {
+      setVisibleCards(1.5); // Um cartão e meio em telas médias
+    } else if (window.innerWidth <= 992) {
+      setVisibleCards(2.5); // Dois cartões e meio em telas grandes
+    } else if (window.innerWidth <= 1200) {
+      setVisibleCards(3); // Três cartões em telas muito grandes
+    } else {
+      setVisibleCards(3.5); // Valor padrão para telas extra grandes
+    }
+  };
+
+  // Detecta o tamanho da tela no carregamento e durante o redimensionamento
+  useEffect(() => {
+    // Configura visibleCards na inicialização
+    updateVisibleCards();
+    
+    // Adiciona event listener para redimensionamento
+    window.addEventListener('resize', updateVisibleCards);
+    
+    // Limpa event listener
+    return () => {
+      window.removeEventListener('resize', updateVisibleCards);
+    };
+  }, []);
 
   // Navegação manual
   const goToPrevious = () => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
-    setCurrentIndex(prevIndex => prevIndex - 1);
+    // Para dispositivos móveis, avança um cartão completo
+    if (window.innerWidth <= 480) {
+      setCurrentIndex(prevIndex => prevIndex - 1);
+    } else {
+      setCurrentIndex(prevIndex => prevIndex - 1);
+    }
   };
 
   const goToNext = () => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
-    setCurrentIndex(prevIndex => prevIndex + 1);
+    // Para dispositivos móveis, avança um cartão completo
+    if (window.innerWidth <= 480) {
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    } else {
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    }
   };
 
   // Reposicionamento para criar efeito infinito
@@ -70,7 +108,7 @@ const Activity = () => {
       const timeout = setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(activities.length);
-      }, 500); // Tempo da transição para coincidir com CSS
+      }, 500);
       return () => clearTimeout(timeout);
     }
     
@@ -79,7 +117,7 @@ const Activity = () => {
       const timeout = setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(activities.length);
-      }, 500); // Tempo da transição para coincidir com CSS
+      }, 500);
       return () => clearTimeout(timeout);
     }
     

@@ -5,10 +5,12 @@
   justify-content: center;
   background-color: #fff;
   padding: 80px 0;
+  box-sizing: border-box; /* Previne overflow */
 }
 
 .offer-section {
   width: 80%;
+  max-width: 1200px; /* Define um tamanho máximo para telas muito grandes */
 }
 
 .offer-content {
@@ -17,18 +19,13 @@
 }
 
 /* Header alinhado à esquerda */
-.offer-header {
-  text-align: left;
-  margin-bottom: 50px;
-}
-
 .offer-category {
   font-size: 2.5rem;
   font-weight: 800;
   color: #333;
   margin-bottom: 20px;
   display: block;
-  /* Barra laranja removida */
+  line-height: 1.2; /* Melhora a legibilidade em telas pequenas */
 }
 
 .offer-description-text {
@@ -36,6 +33,7 @@
   color: #666;
   line-height: 1.6;
   max-width: 90%;
+  margin-bottom: 40px; /* Espaço adicional antes do showcase */
 }
 
 .offer-showcase {
@@ -68,6 +66,7 @@
 
 .offer-accordion-container {
   flex: 0 0 48%;
+  width: 100%; /* Garante que ocupe todo o espaço disponível */
 }
 
 .offer-accordion {
@@ -77,11 +76,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%; /* Garante largura completa */
 }
 
 .offer-accordion-item {
   border-radius: 8px;
   overflow: hidden;
+  width: 100%; /* Garante que o item ocupe apenas a largura disponível */
+  box-sizing: border-box; /* Inclui padding e border na largura */
 }
 
 .offer-accordion-header {
@@ -97,6 +99,8 @@
   border-radius: 8px;
   border: 1px solid #eee;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .offer-accordion-header:hover {
@@ -114,6 +118,8 @@
 
 .offer-name {
   font-size: 1.1rem;
+  flex: 1; /* Permite que o nome ocupe o máximo de espaço */
+  padding-right: 10px; /* Espaço entre o nome e o ícone */
 }
 
 .offer-icon {
@@ -121,6 +127,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+  width: 24px; /* Tamanho fixo para o ícone */
+  height: 24px;
 }
 
 /* Setas diagonais */
@@ -129,7 +138,7 @@
 }
 
 .arrow-diagonal-down {
-  transform: rotate(45deg);
+  transform: rotate(225deg); /* Ajustado para apontar para baixo corretamente */
 }
 
 .offer-accordion-content {
@@ -142,6 +151,8 @@
   border-radius: 0 0 8px 8px;
   animation: slideDown 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box; /* Isso é crucial para incluir padding na largura */
 }
 
 @keyframes slideDown {
@@ -166,11 +177,20 @@
   .offer-section {
     width: 95%;
   }
+  
+  .offer-category {
+    font-size: 2.2rem;
+  }
+  
+  .offer-image-container {
+    height: 350px;
+  }
 }
 
 @media (max-width: 992px) {
   .offer-showcase {
     flex-direction: column;
+    gap: 30px;
   }
   
   .offer-image-container,
@@ -180,14 +200,22 @@
   }
   
   .offer-image-container {
-    margin-bottom: 30px;
+    margin-bottom: 10px; /* Reduzido pois o gap já proporciona espaçamento */
     height: 320px;
+  }
+  
+  .offer-category {
+    font-size: 2.1rem;
   }
 }
 
 @media (max-width: 768px) {
   .offer-section-container {
-    padding: 60px 0;
+    padding: 60px 20px; /* Adicionado padding horizontal */
+  }
+  
+  .offer-section {
+    width: 100%;
   }
   
   .offer-category {
@@ -197,35 +225,111 @@
   .offer-description-text {
     font-size: 1rem;
     max-width: 100%;
+    margin-bottom: 30px;
   }
   
   .offer-image-container {
     height: 280px;
   }
-}
-
-@media (max-width: 480px) {
-  .offer-section-container {
-    padding: 40px 20px;
+  
+  .offer-showcase {
+    gap: 25px;
   }
   
-  .offer-section {
-    width: 100%;
+  .offer-accordion {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .offer-section-container {
+    padding: 50px 20px;
   }
   
   .offer-category {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .offer-description-text {
+    margin-bottom: 25px;
+  }
+  
+  .offer-image-container {
+    height: 250px;
+    border-radius: 8px;
   }
   
   .offer-accordion-header {
     padding: 12px 15px;
   }
   
+  .offer-name {
+    font-size: 1rem;
+  }
+  
   .offer-accordion-content {
     padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-section-container {
+    padding: 40px 15px;
+  }
+  
+  .offer-category {
+    font-size: 1.8rem;
+  }
+  
+  .offer-description-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .offer-accordion-header {
+    padding: 10px 15px;
+  }
+  
+  .offer-accordion-content {
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
   
   .offer-image-container {
     height: 220px;
+  }
+  
+  .offer-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+  .offer-section-container {
+    padding: 30px 12px;
+  }
+  
+  .offer-category {
+    font-size: 1.6rem;
+  }
+  
+  .offer-image-container {
+    height: 200px;
+  }
+  
+  .offer-accordion-header {
+    padding: 10px 12px;
+  }
+  
+  .offer-accordion-content {
+    padding: 10px 12px;
+  }
+  
+  .offer-name {
+    font-size: 0.95rem;
   }
 }
