@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    // Efeito para controlar o scroll do body quando o menu mobile está aberto
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+        
+        // Limpar ao desmontar
+        return () => {
+            document.body.classList.remove('menu-open');
+        };
+    }, [menuOpen]);
+
     const handleMenuToggle = () => setMenuOpen((open) => !open);
+    
     const handleLinkClick = () => setMenuOpen(false);
 
     return (
@@ -25,7 +40,6 @@ export default function Header() {
                     <a href="#contato" onClick={handleLinkClick}>Contato</a>
                     <a
                         href="https://www.instagram.com/academiaciclos/#"
-
                         rel="noopener noreferrer"
                         className="insta-link"
                         aria-label="Instagram"
@@ -36,7 +50,7 @@ export default function Header() {
                             height="26"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#FF7A00"
+                            stroke="#FFFFFF"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"

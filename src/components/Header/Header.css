@@ -1,237 +1,370 @@
 .header {
-    width: 100%;
-    background: #3ab6e5; /* azul bebê */
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(58, 182, 229, 0.07);
-    position: relative;
-    z-index: 10;
-  }
-  
+  width: 100%;
+  background: #3ab6e5; /* azul bebê */
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(58, 182, 229, 0.07);
+  position: fixed; /* Manter o header fixo no topo da página */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Valor alto para garantir que fique acima de outros elementos */
+  box-sizing: border-box;
+}
+
+.header-inner {
+  width: 90%;
+  max-width: 1200px;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 1001; /* Garantir que o logo permaneça acima do menu mobile */
+}
+
+.logo-link {
+  display: block;
+  height: 60px;
+  text-decoration: none;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-right: 0;
+}
+
+.logo-ciclos {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.logo-academia {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  max-height: 50px;
+  transition: height 0.3s ease;
+}
+
+/* Menu padrão (desktop) */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+  padding: 5px 0;
+  display: block;
+}
+
+.menu a:not(.insta-link):after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff7a00;
+  transition: width 0.3s ease;
+}
+
+.menu a:not(.insta-link):hover:after {
+  width: 100%;
+}
+
+.menu a:not(.insta-link):hover {
+  color: #ff7a00; /* laranja */
+}
+
+.insta-link {
+  display: flex;
+  align-items: center;
+  margin-left: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.insta-icon {
+  stroke: #fff;
+  transition: stroke 0.2s, transform 0.2s;
+}
+
+.insta-link:hover .insta-icon {
+  stroke: #ff7a00;
+  transform: scale(1.1);
+}
+
+/* Botão hambúrguer (escondido no desktop) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; /* Acima do menu mobile */
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  margin: 3px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação do hambúrguer para X */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Responsividade: Desktop para Tablet */
+@media (max-width: 1024px) {
   .header-inner {
-    width: 80%;
-    max-width: 1200px;
-    min-width: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-    position: relative;
+    width: 95%;
   }
   
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    margin-right: 0;
-  }
-  
-  .logo-ciclos {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #fff;
-    font-family: 'Montserrat', Arial, sans-serif;
-    letter-spacing: 1.5px;
-  }
-  
-  .logo-academia {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    font-family: 'Montserrat', Arial, sans-serif;
-    letter-spacing: 1px;
-    margin-top: 2px;
-  }
-  
-  .logo-img {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-  }
-  
-  /* Menu padrão (desktop) */
   .menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    transition: none;
+    gap: 1.5rem;
   }
   
   .menu a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 500;
-    transition: color 0.2s;
-    position: relative;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsividade: Tablet */
+@media (max-width: 900px) {
+  .header-inner {
+    width: 95%;
+    padding: 12px 0;
   }
   
-  .menu a:not(.insta-link):hover {
-    color: #ff7a00; /* laranja */
+  .logo-img {
+    height: 40px;
+    max-height: 40px;
+  }
+  
+  .menu a {
+    font-size: 0.9rem;
   }
   
   .insta-link {
-    display: flex;
-    align-items: center;
-    margin-left: 1.2rem;
-    transition: transform 0.2s;
+    margin-left: 0.8rem;
+  }
+}
+
+/* Responsividade: Mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px; /* Compensar pelo header fixo */
   }
   
-  .insta-link .insta-icon {
-    stroke: #fff;
-    transition: stroke 0.2s;
+  .header {
+    height: auto;
   }
   
-  .insta-link:hover .insta-icon {
-    stroke: #ff7a00;
-    transform: scale(1.1);
-  }
-  
-  /* Botão hambúrguer (escondido no desktop) */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 20;
-  }
-  
-  .menu-toggle span {
-    display: block;
-    height: 4px;
+  .header-inner {
+    padding: 12px 5%;
     width: 100%;
-    background: #fff;
-    border-radius: 2px;
-    margin: 4px 0;
-    transition: 0.3s;
   }
   
-  /* Animação do hambúrguer para X */
-  .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  
-  /* Responsivo: Mobile */
-  @media (max-width: 900px) {
-    .header-inner {
-      width: 95%;
-      padding: 12px 0;
-    }
-    .logo-img {
-      height: 30px;
-    }
-    .logo-ciclos {
-      font-size: 1.2rem;
-    }
-    .logo-academia {
-      font-size: 0.85rem;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .header-inner {
-      flex-direction: row;
-      width: 98%;
-      padding: 10px 0;
-    }
-    .logo-img {
-      height: 24px;
-    }
-    .logo-ciclos {
-      font-size: 1rem;
-    }
-    .logo-academia {
-      font-size: 0.75rem;
-    }
+  .logo-img {
+    height: 40px;
+    max-height: 40px;
   }
   
   /* Menu mobile */
-  @media (max-width: 768px) {
-    .header-inner {
-      width: 98%;
-      padding: 10px 0;
-    }
-  
-    .menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100vw;
-      background: #3ab6e5;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      padding: 0;
-      box-shadow: 0 6px 16px rgba(58,182,229,0.08);
-      border-bottom: 1px solid #f0f0f0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-10px);
-      transition: opacity 0.25s, transform 0.25s;
-      z-index: 15;
-    }
-  
-    .menu.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-      padding: 12px 0 8px 0;
-    }
-  
-    .menu a {
-      width: 100%;
-      padding: 14px 24px;
-      font-size: 1.1rem;
-      border-bottom: 1px solid #47c3f7;
-      color: #fff;
-      background: none;
-      transition: background 0.2s, color 0.2s;
-    }
-  
-    .menu a:not(.insta-link):hover {
-      background: #ff7a00;
-      color: #fff;
-    }
-  
-    .insta-link {
-      margin-left: 0;
-      padding: 14px 24px;
-      border-bottom: none;
-    }
-  
-    /* Mostra o botão hambúrguer */
-    .menu-toggle {
-      display: flex;
-    }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(58, 182, 229, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 80px 0 30px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
   }
+  
+  .menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  .menu a {
+    width: auto;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: none;
+    color: #fff;
+    position: relative;
+  }
+  
+  .menu a:not(.insta-link):after {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .menu a:not(.insta-link):hover:after {
+    width: 70%;
+  }
+  
+  .insta-link {
+    margin-left: 0;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .insta-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: flex;
+  }
+}
 
-  @media (max-width: 900px) {
-    .logo-img {
-      height: 40px; 
-    }
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 10px 5%;
   }
   
-  @media (max-width: 600px) {
-    .logo-img {
-      height: 40px; 
-    }
+  .logo-img {
+    height: 36px;
+    max-height: 36px;
   }
+  
+  .menu a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .header-inner {
+    padding: 8px 5%;
+  }
+  
+  .logo-img {
+    height: 32px;
+    max-height: 32px;
+  }
+  
+  .menu-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .menu-toggle span {
+    height: 2px;
+    margin: 2px 0;
+  }
+  
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  
+  .menu {
+    padding: 70px 0 30px;
+    gap: 20px;
+  }
+  
+  .menu a {
+    font-size: 1rem;
+  }
+  
+  .insta-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo-img {
+    height: 28px;
+    max-height: 28px;
+  }
+  
+  .menu-toggle {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Prevenir scroll quando o menu está aberto */
+body.menu-open {
+  overflow: hidden;
+}

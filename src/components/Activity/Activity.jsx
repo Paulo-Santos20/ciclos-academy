@@ -162,7 +162,17 @@ const Activity = () => {
       goToPrevious();
     }
   };
-
+  const all = document.getElementsByTagName('*');
+  for (let i = 0; i < all.length; i++) {
+    const elem = all[i];
+    const style = window.getComputedStyle(elem);
+    const width = parseFloat(style.width);
+    const screenWidth = window.innerWidth;
+    
+    if (width > screenWidth) {
+      console.log('Elemento maior que a tela:', elem, width, 'px');
+    }
+  }
   return (
     <section className="activity-section-container">
       <div className="activity-section">

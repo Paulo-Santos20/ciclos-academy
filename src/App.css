@@ -8,15 +8,12 @@
 }
 
 html, body {
-  height: 100%;
   width: 100%;
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: #fff;
-  color: #222;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
-
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 img, picture, video, canvas, svg {
