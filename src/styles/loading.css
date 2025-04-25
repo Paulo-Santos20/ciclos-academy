@@ -1,0 +1,89 @@
+/* src/styles/loading.css */
+.loading-skeleton {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loading-skeleton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .loading-pulse {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3ab6e5; /* Azul bebê da academia */
+    animation: spin 1s linear infinite;
+    z-index: 1;
+    margin-bottom: 15px;
+  }
+  
+  .skeleton-text {
+    color: #888;
+    font-size: 14px;
+    z-index: 1;
+  }
+  
+  /* Variações por tipo de componente */
+  .loading-skeleton-activity {
+    background-color: #f0f8ff;
+  }
+  
+  .loading-skeleton-offer {
+    background-color: #f0f0f0;
+  }
+  
+  .loading-skeleton-price {
+    background-color: #f5f5f5;
+  }
+  
+  .loading-skeleton-contact {
+    background-color: #f0fff0;
+  }
+  
+  .loading-skeleton-location {
+    background-color: #fff0f0;
+  }
+  
+  .loading-skeleton-footer {
+    background-color: #f8f8f8;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .loading-skeleton::after {
+      animation: none;
+    }
+    
+    .loading-pulse {
+      animation: none;
+      border-top-color: #888;
+    }
+  }
