@@ -29,7 +29,7 @@
 /* Estrutura Interna */
 .banner-inner {
   width: 100%;
-  max-width: 1200px;
+  max-width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,8 +155,8 @@
 }
 
 .star-2 {
-  bottom: 20%;
-  right: 15%;
+  bottom: 40%;
+  right: 55%;
   font-size: 3rem;
 }
 
@@ -308,7 +308,7 @@
   .banner-container {
     background:
       linear-gradient(0deg, rgba(49, 49, 49, 0.93) 40%, rgba(234, 248, 253, 0.7) 100%),
-      url('../../assets/img/academia.png') center center/cover no-repeat;
+      url('../../assets/img/academia.webp') center center/cover no-repeat;
   }
 }
 

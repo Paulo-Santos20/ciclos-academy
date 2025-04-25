@@ -9,7 +9,6 @@
 
 .location-section {
   width: 80%;
-  max-width: 1200px; /* Limite para telas muito grandes */
   box-sizing: border-box;
 }
 

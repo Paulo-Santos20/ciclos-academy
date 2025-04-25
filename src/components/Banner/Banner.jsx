@@ -1,7 +1,7 @@
 import React from "react";
 import "./Banner.css";
 import { FaStar, FaPercentage } from "react-icons/fa";
-import BannerImg from "../../assets/img/academia.png"; // Ajuste o caminho da imagem
+import BannerImg from "../../assets/img/academia.webp"; // Ajuste o caminho da imagem
 
 export default function Banner() {
   return (

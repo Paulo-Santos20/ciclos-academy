@@ -3,7 +3,7 @@ import "./Offer.css";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 // Importe a imagem da academia
-import academiaImg from "../../assets/img/academia.png";
+import academiaImg from "../../assets/img/academia.webp";
 
 const offers = [
   {

@@ -3,11 +3,11 @@ import "./Activity.css";
 import { FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 
 // Importando imagens (mantidas como no original)
-import musculacaoImg from "../../assets/img/musculacao.jpg";
-import funcionalImg from "../../assets/img/funcional.jpg";
-import jumpImg from "../../assets/img/jump.jpg";
-import dancaImg from "../../assets/img/danca.jpg";
-import pilatesImg from "../../assets/img/pilates.jpg";
+import musculacaoImg from "../../assets/img/musculacao.webp";
+import funcionalImg from "../../assets/img/funcional.webp";
+import jumpImg from "../../assets/img/jump.webp";
+import dancaImg from "../../assets/img/danca.webp";
+import pilatesImg from "../../assets/img/pilates.webp";
 
 const activities = [
   { 

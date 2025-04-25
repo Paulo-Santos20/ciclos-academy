@@ -28,7 +28,7 @@
 
 .activity-header-content {
   text-align: left;
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .activity-title {
@@ -41,16 +41,6 @@
   line-height: 1.2; /* Melhora legibilidade */
 }
 
-.activity-title:after {
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 4px;
-  background-color: #badffa; /* Azul bebê */
-  bottom: -10px;
-  left: 0;
-  border-radius: 2px;
-}
 
 .activity-subtitle {
   color: #666;

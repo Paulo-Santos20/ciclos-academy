@@ -2,8 +2,6 @@ import React from "react";
 import "./Footer.css";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope, FaArrowRight } from "react-icons/fa";
 
-// Importe o logo da academia aqui
-import logoWhite from "../../assets/img/academia.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,22 +11,21 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-main">
           <div className="footer-col footer-about">
-            <img src={logoWhite} alt="Academia Corpo Em Forma" className="footer-logo" />
             <p className="footer-description">
               Somos mais que uma academia. Somos um centro completo de saúde e bem-estar,
               dedicado a transformar vidas através de atividades físicas e hábitos saudáveis.
             </p>
             <div className="footer-social">
-              <a href="https://facebook.com"  rel="noopener noreferrer" className="social-icon">
+              <a href="https://facebook.com" rel="noopener noreferrer" className="social-icon">
                 <FaFacebookF />
               </a>
-              <a href="https://instagram.com"  rel="noopener noreferrer" className="social-icon">
+              <a href="https://instagram.com" rel="noopener noreferrer" className="social-icon">
                 <FaInstagram />
               </a>
-              <a href="https://twitter.com"  rel="noopener noreferrer" className="social-icon">
+              <a href="https://twitter.com" rel="noopener noreferrer" className="social-icon">
                 <FaTwitter />
               </a>
-              <a href="https://youtube.com"  rel="noopener noreferrer" className="social-icon">
+              <a href="https://youtube.com" rel="noopener noreferrer" className="social-icon">
                 <FaYoutube />
               </a>
             </div>
@@ -63,7 +60,7 @@ const Footer = () => {
             <ul className="footer-contact-list">
               <li>
                 <FaMapMarkerAlt className="contact-icon" />
-                <p>Av. Bernardo Vieira de Melo, 5000<br />Candeias, Jaboatão dos Guararapes - PE</p>
+                <p>Av. Bernardo Vieira de Melo, 5000<br />Candeias, Jaboatão - PE</p>
               </li>
               <li>
                 <FaPhone className="contact-icon" />
@@ -71,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <FaEnvelope className="contact-icon" />
-                <p>contato@academiacorpoemforma.com.br</p>
+                <p>contato@academia.com.br</p>
               </li>
             </ul>
           </div>
