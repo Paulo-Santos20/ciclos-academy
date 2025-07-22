@@ -8,13 +8,13 @@
 /* Container Principal */
 .banner-container {
   width: 100%;
-  height: 80vh;
+  min-height: 100vh;
   background: #eaf8fd;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 32px;
+  padding: 20px 16px;
   box-sizing: border-box;
 }
 
@@ -29,58 +29,59 @@
 /* Estrutura Interna */
 .banner-inner {
   width: 100%;
-  max-width: 80%;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
 }
 
 /* Texto Principal */
 .banner-content {
-  max-width: 50%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  z-index: 2;
 }
 
 .banner-title {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* Espaçamento entre "Foco, Força e" */
+  margin-bottom: 16px;
 }
 
 .outlined-text {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
   color: orange;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.1;
+  -webkit-text-stroke: 1px orange;
 }
 
 /* Subtítulo */
 .banner-subtitle {
-  margin-top: 16px;
-  /* Espaço entre título e subtítulo */
+  margin-bottom: 24px;
 }
 
 .title-blue {
-  font-size: 4rem;
+  font-size: clamp(3rem, 6vw, 4rem);
   font-weight: 900;
   color: #3ab6e5;
-  /* Azul escuro */
-  line-height: 1.2;
+  line-height: 1.1;
   text-align: left;
 }
 
 /* Botão e Texto Auxiliar */
 .banner-actions {
-  margin-top: 24px;
   display: flex;
-  align-items: center;
-  gap: 20px;
-  /* Espaço entre botão e texto */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
 }
 
 .banner-btn {
@@ -88,36 +89,41 @@
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 12px 28px;
-  font-size: 1.2rem;
+  padding: 14px 32px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0px 4px 12px rgba(58, 182, 229, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
+  text-transform: lowercase;
+  white-space: nowrap;
 }
 
 .banner-btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(58, 182, 229, 0.6);
 }
 
 .banner-call {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: #3ab6e5;
   font-weight: 500;
   text-transform: uppercase;
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: left;
 }
 
 /* Imagem */
 .banner-image-wrapper {
-  max-width: 45%;
+  flex: 1;
+  max-width: 500px;
+  z-index: 1;
 }
 
 .banner-image {
   width: 100%;
-  max-width: 500px;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 16px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
 }
@@ -130,251 +136,331 @@
   top: 0;
   left: 0;
   pointer-events: none;
-}
-
-.percentage-icon {
-  position: absolute;
-  top: 10%;
-  left: 70%;
-  font-size: 6rem;
-  color: #3ab6e5;
-  opacity: 0.8;
+  z-index: 0;
 }
 
 .star {
   position: absolute;
   color: #3ab6e5;
   filter: drop-shadow(0 0 10px rgba(58, 182, 229, 0.6));
-  opacity: 0.8;
+  opacity: 0.7;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .star-1 {
-  top: 20%;
-  left: 20%;
-  font-size: 2rem;
+  top: 15%;
+  left: 15%;
 }
 
 .star-2 {
-  bottom: 40%;
-  right: 55%;
-  font-size: 3rem;
+  bottom: 30%;
+  right: 20%;
 }
 
 .star-3 {
-  bottom: 10%;
+  bottom: 15%;
   left: 10%;
-  font-size: 2.5rem;
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
+/* RESPONSIVIDADE MOBILE FIRST */
+
+/* Mobile Extra Small (até 320px) */
+@media (max-width: 320px) {
+  .banner-container {
+    min-height: 100vh;
+    padding: 16px 12px;
+    background: 
+      linear-gradient(0deg, rgba(49, 49, 49, 0.85) 30%, rgba(234, 248, 253, 0.8) 100%),
+      url('../../assets/img/academia.webp') center center/cover no-repeat;
+  }
+
   .banner-inner {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+    text-align: center;
   }
 
   .banner-content {
-    max-width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
-  .banner-title .outlined-text {
+  .outlined-text {
+    font-size: 2rem;
+    -webkit-text-stroke: 1px orange;
+  }
+
+  .title-blue {
     font-size: 2.5rem;
-    -webkit-text-stroke: 1.5px #fff;
   }
 
-  .banner-subtitle .title-blue {
-    font-size: 3rem;
+  .banner-actions {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .banner-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 
   .banner-call {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    text-align: center;
   }
 
   .banner-image-wrapper {
-    max-width: 60%;
+    display: none;
   }
 
-  .percentage-icon {
-    font-size: 4rem;
-    left: 50%;
-  }
-
-  .star-1,
-  .star-2,
-  .star-3 {
-    font-size: 1.8rem;
-  }
-}
-
-
-@media (min-width: 768px) {
-  .banner-inner {
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    width: 100%;
-  }
-
-  .banner-content {
-    padding: 24px 8px 20px 8px;
-    border-radius: 12px;
+  .star {
+    font-size: 1.2rem;
   }
 
   .star-1 {
     top: 5%;
+    left: 85%;
+  }
+
+  .star-2 {
+    bottom: 35%;
+    right: 10%;
   }
 
   .star-3 {
     bottom: 5%;
-  }
-
-  .banner-title .outlined-text {
-    font-size: 4.5rem;
-    -webkit-text-stroke: 1px orange;
-  }
-
-  .banner-subtitle .title-blue {
-    font-size: 4.8rem;
-  }
-
-  .banner-actions {
-    gap: 22px;
-  }
-
-  .banner-btn {
-    font-size: 1rem;
-    padding: 18px 28px;
-  }
-
-  .banner-call {
-    font-size: 0.85rem;
-  }
-
-  .banner-image-wrapper {
-    max-width: 100%;
-    min-width: 120px;
-  }
-
-  .banner-image {
-    max-width: 450px;
-    border-radius: 12px;
+    left: 5%;
   }
 }
 
+/* Mobile Small (321px - 480px) */
+@media (min-width: 321px) and (max-width: 480px) {
+  .banner-container {
+    min-height: 100vh;
+    padding: 20px 16px;
+    background: 
+      linear-gradient(0deg, rgba(49, 49, 49, 0.80) 35%, rgba(234, 248, 253, 0.75) 100%),
+      url('../../assets/img/academia.webp') center center/cover no-repeat;
+  }
 
-@media (max-width: 767px) {
   .banner-inner {
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
+    gap: 24px;
+    text-align: center;
   }
 
   .banner-content {
-    max-width: 100%;
-    padding: 24px 8px 20px 8px;
-    border-radius: 12px;
-    margin-top: 24px;
+    align-items: center;
+    text-align: center;
   }
 
-  .banner-title .outlined-text {
-    font-size: 3rem;
+  .outlined-text {
+    font-size: 2.5rem;
     -webkit-text-stroke: 1px orange;
   }
 
-  .banner-subtitle .title-blue {
-    font-size: 4.4rem;
-  }
-
-  .banner-actions {
-    gap: 12px;
-    flex-direction: column;
-  }
-
-  .banner-btn {
-    font-size: 2rem;
-    padding: 12px 20px;
-  }
-
-  .banner-call {
-    font-size: 1rem;
-  }
-
-  .banner-image-wrapper {
-    display: none !important;
-    /* Esconde a imagem como elemento */
-  }
-
-  .banner-container {
-    background:
-      linear-gradient(0deg, rgba(49, 49, 49, 0.93) 40%, rgba(234, 248, 253, 0.7) 100%),
-      url('../../assets/img/academia.webp') center center/cover no-repeat;
-  }
-}
-
-@media (max-width: 425px) {
-  .banner-title .outlined-text {
+  .title-blue {
     font-size: 3rem;
   }
 
-  .banner-subtitle .title-blue {
-    font-size: 3.5rem;
+  .banner-actions {
+    align-items: center;
+    gap: 16px;
   }
 
   .banner-btn {
-    font-size: 2rem;
-    padding: 12px 20px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+
+  .banner-call {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .banner-image-wrapper {
+    display: none;
   }
 
   .star-1 {
-    top: 10%;
+    top: 8%;
     left: 80%;
   }
 
   .star-2 {
-    bottom: 10%;
-  }
-
-  .banner-call {
-    font-size: 0.80rem;
-  }
-
-  .banner-container {
-    height: 70vh;
-  }
-}
-
-@media (max-width: 325px) {
-  .banner-title .outlined-text {
-    font-size: 2rem;
-  }
-
-  .banner-subtitle .title-blue {
-    font-size: 2.5rem;
-  }
-
-  .banner-btn {
-    font-size: 1rem;
-    padding: 12px 20px;
-  }
-
-  .star-1 {
-    top: 20%;
-  }
-
-  .star-2 {
-    bottom: 10%;
+    bottom: 30%;
+    right: 15%;
   }
 
   .star-3 {
-    bottom: 5%;
+    bottom: 8%;
+    left: 8%;
+  }
+}
+
+/* Mobile Medium (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .banner-container {
+    min-height: 90vh;
+    padding: 24px 20px;
+  }
+
+  .banner-inner {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .banner-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .outlined-text {
+    font-size: 3rem;
+  }
+
+  .title-blue {
+    font-size: 3.5rem;
+  }
+
+  .banner-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .banner-btn {
+    padding: 16px 32px;
+    font-size: 1.2rem;
   }
 
   .banner-call {
-    font-size: 0.60rem;
+    font-size: 1rem;
   }
 
+  .banner-image-wrapper {
+    max-width: 70%;
+  }
+
+  .star-1 {
+    top: 10%;
+    left: 20%;
+  }
+
+  .star-2 {
+    bottom: 25%;
+    right: 25%;
+  }
+
+  .star-3 {
+    bottom: 10%;
+    left: 15%;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .banner-container {
-    height: 50vh;
+    min-height: 80vh;
+    padding: 32px 24px;
+  }
+
+  .banner-inner {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .banner-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .banner-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .banner-image-wrapper {
+    max-width: 45%;
+  }
+
+  .star-1 {
+    top: 15%;
+    left: 15%;
+  }
+
+  .star-2 {
+    bottom: 30%;
+    right: 20%;
+  }
+
+  .star-3 {
+    bottom: 15%;
+    left: 10%;
+  }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .banner-container {
+    min-height: 80vh;
+    padding: 40px 32px;
+  }
+
+  .banner-inner {
+    max-width: 80%;
+  }
+
+  .banner-content {
+    max-width: 50%;
+  }
+
+  .banner-actions {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .banner-image-wrapper {
+    max-width: 45%;
+  }
+
+  .outlined-text {
+    font-size: 3.5rem;
+  }
+
+  .title-blue {
+    font-size: 4rem;
+  }
+
+  .banner-btn {
+    font-size: 1.2rem;
+    padding: 12px 28px;
+  }
+
+  .banner-call {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop Large (1440px+) */
+@media (min-width: 1440px) {
+  .outlined-text {
+    font-size: 4rem;
+  }
+
+  .title-blue {
+    font-size: 4.5rem;
+  }
+
+  .banner-btn {
+    font-size: 1.3rem;
+    padding: 14px 32px;
+  }
+
+  .star {
+    font-size: 3rem;
   }
 }
