@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
+import Activity from "../../pages/Activity/Activity";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function Header() {
                     </a>
                 </div>
                 <nav className={`menu ${menuOpen ? "open" : ""}`}>
-                    <a href="#modalidades" onClick={handleLinkClick}>Modalidades</a>
+                    <a href="{Activity" onClick={handleLinkClick}>Modalidades</a>
                     <a href="#planos" onClick={handleLinkClick}>Planos e Preços</a>
                     <a href="#contato" onClick={handleLinkClick}>Contato</a>
                     <a

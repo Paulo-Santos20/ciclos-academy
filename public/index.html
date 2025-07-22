@@ -1,43 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/academia.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#3ab6e5" />
+    
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Academia Ciclos - Transforme seu corpo e mente com nossas modalidades completas: musculação, cardio, yoga, natação e muito mais. Venha fazer parte da nossa família fitness!"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <meta
+      name="keywords"
+      content="academia, fitness, musculação, cardio, yoga, natação, spinning, crossfit, pilates, treino, saúde, bem-estar, Ciclos"
+    />
+    <meta name="author" content="Academia Ciclos" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags (para redes sociais) -->
+    <meta property="og:title" content="Academia Ciclos - Sua Jornada Fitness Começa Aqui" />
+    <meta property="og:description" content="Transforme seu corpo e mente com nossas modalidades completas. Musculação, cardio, yoga, natação e muito mais. Venha fazer parte da nossa família fitness!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ciclos-beta.vercel.app/" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Academia Ciclos" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Academia Ciclos - Sua Jornada Fitness Começa Aqui" />
+    <meta name="twitter:description" content="Transforme seu corpo e mente com nossas modalidades completas. Venha fazer parte da nossa família fitness!" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.jpg" />
+    
+    <!-- Favicon e Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    
+    <!-- Manifest para PWA -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    
+    <!-- Preconnect para otimização de performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Gym",
+      "name": "Academia Ciclos",
+      "description": "Academia completa com diversas modalidades fitness para transformar seu corpo e mente",
+      "url": "https://academiaciclos.com.br",
+      "logo": "https://academiaciclos.com.br/logo.png",
+      "image": "https://academiaciclos.com.br/academia-ciclos.jpg",
+      "telephone": "+55-11-99999-9999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Example, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01234-567",
+        "addressCountry": "BR"
+      },
+      "openingHours": [
+        "Mo-Fr 06:00-22:00",
+        "Sa 08:00-18:00",
+        "Su 08:00-16:00"
+      ],
+      "priceRange": "$$",
+      "amenityFeature": [
+        "Musculação",
+        "Cardio",
+        "Yoga",
+        "Natação",
+        "Spinning",
+        "Crossfit",
+        "Pilates"
+      ]
+    }
+    </script>
+    
+    <title>Academia Ciclos - Sua Jornada Fitness Começa Aqui | Musculação, Cardio, Yoga e Mais</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>Academia Ciclos</h1>
+        <p>Você precisa habilitar o JavaScript para acessar nosso site.</p>
+        <p>Entre em contato conosco pelo telefone: <strong>(11) 99999-9999</strong></p>
+      </div>
+    </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
