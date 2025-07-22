@@ -1,17 +1,18 @@
-// src/components/common/LoadingFallback.js
+// components/common/LoadingFallback.js
 import React from 'react';
-import '../../styles/loading.css';
+import './LoadingFallback.css';
 
-const LoadingFallback = ({ height = 300, type = 'default' }) => {
+const LoadingFallback = ({ height = 200 }) => {
   return (
     <div 
-      className={`loading-skeleton loading-skeleton-${type}`} 
-      style={{ height: `${height}px` }}
-      aria-busy="true"
-      aria-live="polite"
+      className="loading-fallback" 
+      style={{ minHeight: `${height}px` }}
+      aria-label="Carregando conteúdo"
     >
-      <div className="loading-pulse"></div>
-      <div className="skeleton-text">Carregando conteúdo...</div>
+      <div className="loading-spinner">
+        <div className="spinner"></div>
+        <span>Carregando...</span>
+      </div>
     </div>
   );
 };

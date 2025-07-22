@@ -1,42 +1,62 @@
-// src/hooks/useIntersectionObserver.js
-import { useState, useEffect, useRef } from 'react';
+// hooks/useIntersectionObserver.js
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 const useIntersectionObserver = (options = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
-  const ref = useRef(null);
+  const elementRef = useRef(null);
+  const observerRef = useRef(null);
 
-  useEffect(() => {
-    const element = ref.current;
-    
-    if (!element || !window.IntersectionObserver) {
-      setIsVisible(true);
-      setHasBeenVisible(true);
-      return;
+  const defaultOptions = {
+    threshold: 0.1,
+    rootMargin: '50px',
+    triggerOnce: true, // Importante: só dispara uma vez
+    ...options
+  };
+
+  const setRef = useCallback((node) => {
+    if (elementRef.current) {
+      // Limpa o observer anterior
+      if (observerRef.current) {
+        observerRef.current.unobserve(elementRef.current);
+      }
     }
 
-    const observer = new IntersectionObserver(([entry]) => {
-      const visible = entry.isIntersecting;
-      setIsVisible(visible);
+    if (node) {
+      elementRef.current = node;
       
-      if (visible && !hasBeenVisible) {
-        setHasBeenVisible(true);
+      // Cria novo observer apenas se necessário
+      if (!hasBeenVisible && 'IntersectionObserver' in window) {
+        observerRef.current = new IntersectionObserver(
+          ([entry]) => {
+            const isElementVisible = entry.isIntersecting;
+            setIsVisible(isElementVisible);
+            
+            if (isElementVisible && defaultOptions.triggerOnce) {
+              setHasBeenVisible(true);
+              // Desconecta o observer após primeira visualização
+              observerRef.current?.disconnect();
+            }
+          },
+          defaultOptions
+        );
+
+        observerRef.current.observe(node);
       }
-    }, { 
-      threshold: options.threshold || 0, 
-      rootMargin: options.rootMargin || '0px' 
-    });
+    }
+  }, [hasBeenVisible, defaultOptions.threshold, defaultOptions.rootMargin]);
 
-    observer.observe(element);
-
+  useEffect(() => {
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      // Cleanup
+      if (observerRef.current) {
+        observerRef.current.disconnect();
       }
     };
-  }, [options.threshold, options.rootMargin, hasBeenVisible]);
+  }, []);
 
-  return [ref, isVisible || hasBeenVisible, isVisible];
+  // Retorna true se já foi visto ou está visível
+  return [setRef, hasBeenVisible || isVisible];
 };
 
 export default useIntersectionObserver;

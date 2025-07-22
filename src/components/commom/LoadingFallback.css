@@ -1,4 +1,4 @@
-/* styles/loading.css */
+/* src/components/commom/LoadingFallback.css */
 .loading-fallback {
   display: flex;
   align-items: center;
@@ -6,6 +6,7 @@
   background: #f8f9fa;
   border-radius: 8px;
   margin: 20px 0;
+  min-height: 200px;
 }
 
 .loading-spinner {
@@ -35,11 +36,20 @@
   font-weight: 500;
 }
 
-/* Otimização para reduzir repaints */
-.app-container {
-  contain: layout style paint;
-}
-
-.app-container > div {
-  will-change: auto;
+/* Responsividade */
+@media (max-width: 768px) {
+  .loading-fallback {
+    margin: 10px 0;
+    min-height: 150px;
+  }
+  
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border-width: 2px;
+  }
+  
+  .loading-spinner span {
+    font-size: 12px;
+  }
 }
